@@ -10,8 +10,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, '../static')
+# PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+# STATIC_ROOT = os.path.join(PROJECT_DIR, '../static')
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -29,6 +29,10 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     'django.contrib.auth.context_processors.auth',
+#     'django.core.context_processors.static',
+# )
 # Application definition
 
 INSTALLED_APPS = (

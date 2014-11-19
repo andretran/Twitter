@@ -1,1 +1,12 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<!-- <script src="/static/js/twitter_script.js"></script> -->
 
+
+{% if tweets %}
+  <ul class='list-group'>
+    {% for tweet in tweets %}
+      <li class='list-group-item'>{{tweet.author}} - {{ tweet.text }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
