@@ -2,11 +2,11 @@
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <!-- <script src="/static/js/twitter_script.js"></script> -->
 
-
-{% if tweets %}
+<h1> Twitter Clone </h1>
+{% if users %}
   <ul class='list-group'>
-    {% for tweet in tweets %}
-      <li class='list-group-item'>{{tweet.author}} - {{ tweet.text }}</li>
+    {% for user in users %}
+      <li class='list-group-item'><a href='{{user.id}}'>{{user.name}}</a></li>
     {% endfor %}
   </ul>
 {% endif %}

@@ -35,6 +35,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=20)),
+                ('following', models.ManyToManyField(to='twitter_clone.User', through='twitter_clone.Follow')),
             ],
             options={
             },
@@ -55,7 +56,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='follow',
             name='follower',
-            field=models.ForeignKey(to='twitter_clone.User'),
+            field=models.ForeignKey(related_name='follower', to='twitter_clone.User'),
             preserve_default=True,
         ),
     ]

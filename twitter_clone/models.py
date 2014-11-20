@@ -11,12 +11,18 @@ class Tweet(models.Model):
         return self.author.name + " - " + self.text
 
 class Follow(models.Model):
-    follower = models.ForeignKey('User')
+    follower = models.ForeignKey('User', related_name = 'follower')
     followee = models.ForeignKey('User', related_name = 'followee')
 
 class User(models.Model):
     name = models.CharField(max_length = 20)
-    following = models.ManyToManyField('self', through='Follow', related_name = 'follower', symmetrical=False)
+    # follows = models.ManyToManyField('Follow', through='')
+    following = models.ManyToManyField('self', through='Follow', symmetrical=False)
+    # tweets = models.ManyToManyField('Tweet', through='Follow', symmetrical=False)
     # tweets = models.ForeignKey('Tweet')
+
+    def get_tweets(self):
+        return Tweet.objects.filter(author__in = self.following.all()).order_by('-time') 
+
     def __str__(self):
         return self.name

@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<div class='container'>
+  <div class='row'>
+    <div class='jumbotron col-xs-6 col-xs-offset-3' style='text-align: center'>
+      <h1> {{profile.name}}'s Twitter Feed </h1>
+      {% if tweets %}
+        <br>
+        <ul class='list-group tweet-list'>
+          {% for tweet in tweets %}
+            <li class='list-group-item'>
+              <h3>{{tweet.author}} - {{tweet.text}}</h3>
+              <br>
+              {{tweet.time}}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      <form method='POST' class='tweet-form'>
+        <div class='form-group'>
+          <input type='text' class='tweet-box form-control'>
+        </div>
+        <button type='submit' class='btn btn-lg btn-primary tweet-button' style="float: right" data-id='{{profile.id}}'>Create Tweet</button>
+
+
+        <a href='/twitter' class='btn btn-lg btn-danger' style='float: left' >Back</a>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<!-- {% load staticfiles %} -->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="{{ STATIC_URL }}js/twitter_script.js"></script>
